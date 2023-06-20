@@ -3,7 +3,7 @@
     <section class="container mx-auto mt-6">
         <div class="md:grid md:grid-cols-3 md:gap-4">
             <div class="col-span-1">
-                <app-upload />
+                <app-upload ref="upload" />
             </div>
             <div class="col-span-2">
                 <div class="bg-white rounded border border-gray-200 relative flex flex-col">
@@ -99,12 +99,35 @@
 
 <script>
 import AppUpload from '../components/Upload.vue';
+import { songsCollection, auth } from "../includes/firebase";
 
 export default {
     name: "Manage",
     components: {
         AppUpload
+    },
+    data() {
+        return {
+            songs: [],
+        }
+    },
+    async created() {
+        const snapshot = await songsCollection.where("uid", "==", auth.currentUser.uid).get();
+
+        snapshot.forEach(document => {
+            const song = {
+                ...document.data(),
+                docID: document.id,
+            };
+
+            this.songs.push(song);
+        });
     }
+    // beforeRouteLeave(to, from, next) {
+    //     this.$refs.upload.cancelUploads();
+    //     next();
+    // }
+
 }
 </script>
 
