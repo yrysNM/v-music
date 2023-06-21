@@ -103,7 +103,7 @@ export default {
         },
         async deleteSong() {
             const storageRef = storage.ref();
-            const songRef = storageRef.child(`songs/${this.song.original_name}`);
+            const songRef = storageRef.child(`songs/songs/${this.song.original_name}`);
 
             await songRef.delete();
 
