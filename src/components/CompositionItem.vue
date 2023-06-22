@@ -19,14 +19,14 @@
                     <label class="inline-block mb-2">Song name</label>
                     <vee-field type="text" name="modified_name"
                         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                        placeholder="Enter Song Title" />
+                        placeholder="Enter Song Title" @input="updateUnsavedFlag(true)" />
                     <ErrorMessage class="text-red-600" name="modified_name" />
                 </div>
                 <div class="mb-3">
                     <label class="inline-block mb-2">Genre</label>
                     <vee-field type="text" name="genre"
                         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                        placeholder="Enter Genre" />
+                        placeholder="Enter Genre" @input="updateUnsavedFlag(true)" />
                     <ErrorMessage class="text-red-600" name="genre" />
                 </div>
                 <button type="submit" class="py-1.5 px-3 rounded text-white bg-green-600" :disabled="in_submission">
@@ -61,6 +61,10 @@ export default {
         },
         removeSong: {
             type: Function,
+            required: true
+        }, 
+        updateUnsavedFlag: {
+            type: Function, 
             required: true
         }
     },
@@ -109,7 +113,7 @@ export default {
 
             await songsCollection.doc(this.song.docID).delete();
             this.removeSong(this.index);
-        }
+        }, 
     }
 }
 </script>
