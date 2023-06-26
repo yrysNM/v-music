@@ -62,9 +62,9 @@ export default {
         removeSong: {
             type: Function,
             required: true
-        }, 
+        },
         updateUnsavedFlag: {
-            type: Function, 
+            type: Function,
             required: true
         }
     },
@@ -100,6 +100,7 @@ export default {
             }
 
             this.updateSong(this.index, values);
+            this.updateUnsavedFlag(false);
 
             this.in_submission = false;
             this.alert_variant = "bg-green-500";
@@ -113,7 +114,7 @@ export default {
 
             await songsCollection.doc(this.song.docID).delete();
             this.removeSong(this.index);
-        }, 
+        },
     }
 }
 </script>
