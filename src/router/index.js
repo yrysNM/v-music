@@ -35,7 +35,13 @@ const routes = [{
 {
   path: "/:catchAll(.*)*",
   redirect: { name: 'home' }
-}];
+},
+{
+  name: "song",
+  path: "/song/:id",
+  component: () => import("../views/Song.vue")
+},
+];
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
