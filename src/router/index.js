@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/HomeView.vue'
 import useUserStore from "../stores/user";
 
 const routes = [{
@@ -10,7 +10,7 @@ const routes = [{
 {
   path: '/about',
   name: 'about',
-  component: () => import('../views/About.vue')
+  component: () => import('../views/AboutView.vue')
 },
 {
   name: "manage",
@@ -19,7 +19,7 @@ const routes = [{
    */
   // alias: "/manage",
   path: "/manage-music",
-  component: () => import("../views/Manage.vue"),
+  component: () => import("../views/ManageView.vue"),
   beforeEnter: (to, from, next) => {
     console.log("Manage Route Guard");
     next();
@@ -39,7 +39,7 @@ const routes = [{
 {
   name: "song",
   path: "/song/:id",
-  component: () => import("../views/Song.vue")
+  component: () => import("../views/SongView.vue")
 },
 ];
 
