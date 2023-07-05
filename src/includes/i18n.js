@@ -20,7 +20,7 @@ export default createI18n({
       kz: {
          currency: {
             style: "currency",
-            currency: "T",
+            currency: "JPY",
          }
       }
    }
