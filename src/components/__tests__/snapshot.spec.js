@@ -19,7 +19,6 @@ describe("Snapshots SongItem.vue", () => {
                 }
             }
         });
-        console.log(wrapper, song);
-        expect(wrapper.element).toMatchFileSnapshot();
+        expect(wrapper.element).toMatchSnapshot();
     })
 })
