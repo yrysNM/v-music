@@ -1,3 +1,4 @@
+
 <template>
     <!-- Player -->
     <div class="fixed bottom-0 left-0 bg-white px-4 py-2 w-full">
@@ -8,7 +9,7 @@
         </div>
         <div class="flex flex-nowrap gap-4 items-center">
             <!-- Play/Pause Button -->
-            <button type="button" @click.prevent="toggleAudio">
+            <button id="player-play-btn" type="button" @click.prevent="toggleAudio">
                 <i class="fa  text-gray-500 text-xl" :class="{
                     'fa-play': !playing,
                     'fa-pause': playing
