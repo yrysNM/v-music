@@ -1,6 +1,5 @@
 <template>
   <div>
-    <header-page />
     <introduction />
     <section class="container mx-auto">
       <div
@@ -16,22 +15,17 @@
 
         <!-- playlist -->
         <playlist />
-        <player-music />
       </div>
     </section>
   </div>
 </template>
 
 <script lang="ts">
-import PlayerMusic from '../components/PlayerMusic.vue';
-import Header from "../components/TheHeader.vue";
 import Introduction from "../components/TheIntroduction.vue";
 import Playlist from '../components/ThePlaylist.vue';
 
 export default {
   components: {
-    PlayerMusic,
-   "header-page": Header,
     Playlist,
     Introduction,
   },

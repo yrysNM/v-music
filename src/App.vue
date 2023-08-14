@@ -1,11 +1,19 @@
-
 <template>
-  <router-view></router-view>
+  <page-template>
+    <template #content>
+      <router-view></router-view>
+    </template>
+  </page-template>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import pageTemplate from "./template/pageTemplate.vue";
+
+export default {
+  components: {
+    pageTemplate,
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
