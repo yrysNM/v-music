@@ -1,54 +1,19 @@
 <template>
-  <app-header></app-header>
-
-  <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <component :is="Component"></component>
-    </transition>
-  </router-view>
-
-  <app-player />
-
-  <auth></auth>
+  <page-template>
+    <template #content>
+      <router-view></router-view>
+    </template>
+  </page-template>
 </template>
 
-<script>
-import { mapWritableState } from 'pinia';
-import AppHeader from './components/Header.vue';
-import Auth from "./components/Auth.vue";
-import useUserStore from "./stores/user";
-import { auth } from './includes/firebase';
-import AppPlayer from "./components/Player.vue";
+<script lang="ts">
+import pageTemplate from "./template/pageTemplate.vue";
 
 export default {
-  name: "App",
   components: {
-    AppHeader,
-    Auth,
-    AppPlayer,
+    pageTemplate,
   },
-  computed: {
-    ...mapWritableState(useUserStore, ['userLoggedIn']),
-  },
-  created() {
-    if (auth.currentUser) {
-      this.userLoggedIn = true;
-    }
-  }
-}
+};
 </script>
 
-<style>
-.fade-entry-form {
-  opacity: 0;
-}
-
-.fade-enter-active {
-  transition: all .5s linear;
-}
-
-.fade-leave-to {
-  transition: all .5s linear;
-  opacity: 0;
-}
-</style>
+<style scoped></style>
